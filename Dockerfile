@@ -29,7 +29,6 @@ RUN dpkg --add-architecture i386 && \
       emulator \
       'build-tools;25.0.2' \
       'platforms;android-25' \
-      'extras;android;support' \
       'extras;android;m2repository' \
       'extras;google;m2repository' \
       'extras;google;google_play_services' \
