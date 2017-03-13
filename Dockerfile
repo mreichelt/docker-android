@@ -24,14 +24,16 @@ RUN dpkg --add-architecture i386 && \
 
     # get more from `sdkmanager --list` (add '--verbose' to read long package names)
     yes | sdkmanager --verbose \
-      tools \
-      platform-tools \
-      emulator \
+      'tools' \
+      'platform-tools' \
+      'emulator' \
       'build-tools;25.0.2' \
       'platforms;android-25' \
       'extras;android;m2repository' \
       'extras;google;m2repository' \
       'extras;google;google_play_services' \
+      'extras;m2repository;com;android;support;constraint;constraint-layout;1.0.0' \
+      'extras;m2repository;com;android;support;constraint;constraint-layout;1.0.1' \
       'extras;m2repository;com;android;support;constraint;constraint-layout;1.0.2' \
       'system-images;android-25;google_apis;x86' && \
 
