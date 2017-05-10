@@ -3,7 +3,7 @@ FROM beevelop/java
 
 MAINTAINER Marc Reichelt <mcreichelt@gmail.com>
 
-ENV ANDROID_SDK_URL="https://dl.google.com/android/repository/tools_r25.2.3-linux.zip" \
+ENV ANDROID_SDK_URL="https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip" \
     ANT_HOME="/usr/share/ant" \
     MAVEN_HOME="/usr/share/maven" \
     GRADLE_HOME="/usr/share/gradle" \
@@ -28,6 +28,7 @@ RUN dpkg --add-architecture i386 && \
       'platform-tools' \
       'emulator' \
       'build-tools;25.0.2' \
+      'build-tools;25.0.3' \
       'platforms;android-25' \
       'extras;android;m2repository' \
       'extras;google;m2repository' \
