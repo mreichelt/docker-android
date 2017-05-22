@@ -15,7 +15,9 @@ WORKDIR /opt
 
 RUN dpkg --add-architecture i386 && \
     apt-get -qq update && \
-    apt-get -qq install -y wget curl maven ant git gradle libncurses5:i386 libstdc++6:i386 zlib1g:i386 && \
+    apt-get -qq install -y wget curl maven ant git gradle libncurses5:i386 libstdc++6:i386 zlib1g:i386 file libqt5widgets5 && \
+    wget --output-document=android-wait-for-emulator https://raw.githubusercontent.com/travis-ci/travis-cookbooks/0f497eb71291b52a703143c5cd63a217c8766dc9/community-cookbooks/android-sdk/files/default/android-wait-for-emulator && \
+    chmod +x android-wait-for-emulator && \
 
     # Installs Android SDK
     mkdir android && cd android && \
@@ -39,9 +41,4 @@ RUN dpkg --add-architecture i386 && \
       'system-images;android-25;google_apis;x86' && \
 
     chmod a+x -R $ANDROID_HOME && \
-    chown -R root:root $ANDROID_HOME && \
-
-    # Clean up
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-    apt-get autoremove -y && \
-    apt-get clean
+    chown -R root:root $ANDROID_HOME
