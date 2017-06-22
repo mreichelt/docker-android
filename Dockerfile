@@ -32,13 +32,15 @@ RUN dpkg --add-architecture i386 && \
       'build-tools;25.0.2' \
       'build-tools;25.0.3' \
       'platforms;android-25' \
+      'platforms;android-26' \
       'extras;android;m2repository' \
       'extras;google;m2repository' \
       'extras;google;google_play_services' \
       'extras;m2repository;com;android;support;constraint;constraint-layout;1.0.0' \
       'extras;m2repository;com;android;support;constraint;constraint-layout;1.0.1' \
       'extras;m2repository;com;android;support;constraint;constraint-layout;1.0.2' \
-      'system-images;android-25;google_apis;x86' && \
+      'system-images;android-25;google_apis;x86' \
+      'system-images;android-26;google_apis;x86' && \
 
     chmod a+x -R $ANDROID_HOME && \
     chown -R root:root $ANDROID_HOME && \
