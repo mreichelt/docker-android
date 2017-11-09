@@ -29,6 +29,7 @@ RUN dpkg --add-architecture i386 && \
       'tools' \
       'platform-tools' \
       'emulator' \
+      'build-tools;25.0.1' \
       'build-tools;25.0.2' \
       'build-tools;25.0.3' \
       'platforms;android-25' \
