@@ -46,9 +46,6 @@ RUN dpkg --add-architecture i386 && \
       'extras;android;m2repository' \
       'extras;google;m2repository' \
       'extras;google;google_play_services' \
-      'extras;m2repository;com;android;support;constraint;constraint-layout;1.0.0' \
-      'extras;m2repository;com;android;support;constraint;constraint-layout;1.0.1' \
-      'extras;m2repository;com;android;support;constraint;constraint-layout;1.0.2' \
       'system-images;android-25;google_apis;x86' \
       'system-images;android-26;google_apis;x86' \
       'system-images;android-27;google_apis;x86' && \
