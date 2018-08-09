@@ -37,6 +37,9 @@ RUN dpkg --add-architecture i386 && \
       'build-tools;27.0.1' \
       'build-tools;27.0.2' \
       'build-tools;27.0.3' \
+      'build-tools;28.0.0' \
+      'build-tools;28.0.1' \
+      'build-tools;28.0.2' \
       'extras;android;m2repository' \
       'extras;google;m2repository' \
       'extras;google;google_play_services' && \
