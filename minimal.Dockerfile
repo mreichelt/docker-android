@@ -13,6 +13,7 @@ WORKDIR /opt
 
 RUN dpkg --add-architecture i386 && \
     apt-get update -qq && \
+    apt-get install -qq -y apt-utils && \
     apt-get install -qq -y wget curl maven ant git gradle libncurses5:i386 libstdc++6:i386 zlib1g:i386 file libpulse0 qt5-default && \
     wget --quiet --output-document=android-wait-for-emulator https://raw.githubusercontent.com/travis-ci/travis-cookbooks/0f497eb71291b52a703143c5cd63a217c8766dc9/community-cookbooks/android-sdk/files/default/android-wait-for-emulator && \
     chmod +x android-wait-for-emulator && \
