@@ -17,17 +17,17 @@ docker build --tag mreichelt/android:minimal --file minimal.Dockerfile .
 docker push mreichelt/android:minimal
 echo
 
-# TODO only for debugging: stop after minimal image
-exit 0
-
-
 echo "Building 'base' image…"
 docker build --tag mreichelt/android:base --file base.Dockerfile .
+docker push mreichelt/android:base
 echo
 
 echo "Building 'latest' image…"
 docker build --tag mreichelt/android:latest --build-arg "latest_packages=${LATEST_PACKAGES}" --file latest.Dockerfile .
+docker push mreichelt/android:latest
 echo
+
+docker rmi mreichelt/android:minimal mreichelt/android:latest
 
 for sdk in $SDKS; do
     echo "Building '$sdk' image…"
@@ -37,4 +37,6 @@ for sdk in $SDKS; do
     echo "Building '$sdk-system' image…"
     docker build --tag mreichelt/android:$sdk-system --build-arg android_sdk_version=$sdk --file sdk-system.Dockerfile .
     echo
+
+    docker rmi mreichelt/android:$sdk mreichelt/android:$sdk-system
 done
