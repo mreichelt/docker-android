@@ -18,9 +18,9 @@ RUN dpkg --add-architecture i386 && \
     chmod +x android-wait-for-emulator && \
     # Installs Android SDK
     mkdir android && cd android && \
-    wget --output-document=tools.zip --show-progress ${ANDROID_SDK_URL} && \
+    wget --output-document=tools.zip ${ANDROID_SDK_URL} && \
     unzip tools.zip && rm tools.zip
 
-RUN yes | sdkmanager --verbose 'tools' 'platform-tools'
+RUN yes | sdkmanager 'tools' 'platform-tools'
 
 RUN export LD_LIBRARY_PATH=$ANDROID_HOME/emulator/lib64/qt/lib/
