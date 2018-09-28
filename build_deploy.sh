@@ -10,8 +10,11 @@ echo "SDKS = $SDKS"
 echo "LATEST_SDKS = $LATEST_SDKS"
 echo "LATEST_PACKAGES = $LATEST_PACKAGES"
 
+docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
+
 echo "Building 'minimal' image…"
 docker build --tag mreichelt/android:minimal --file minimal.Dockerfile .
+docker push mreichelt/android:minimal
 echo
 
 # TODO only for debugging: stop after minimal image
