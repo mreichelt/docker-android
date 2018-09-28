@@ -14,6 +14,10 @@ echo "Building 'minimal' image…"
 docker build --tag mreichelt/android:minimal --file minimal.Dockerfile .
 echo
 
+# TODO only for debugging: stop after minimal image
+exit 0
+
+
 echo "Building 'base' image…"
 docker build --tag mreichelt/android:base --file base.Dockerfile .
 echo
