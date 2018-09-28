@@ -32,10 +32,12 @@ docker rmi mreichelt/android:minimal mreichelt/android:latest
 for sdk in $SDKS; do
     echo "Building '$sdk' image…"
     docker build --tag mreichelt/android:$sdk --build-arg android_sdk_version=$sdk --file sdk.Dockerfile .
+    docker push mreichelt/android:$sdk
     echo
 
     echo "Building '$sdk-system' image…"
     docker build --tag mreichelt/android:$sdk-system --build-arg android_sdk_version=$sdk --file sdk-system.Dockerfile .
+    docker push mreichelt/android:$sdk-system
     echo
 
     docker rmi mreichelt/android:$sdk mreichelt/android:$sdk-system
