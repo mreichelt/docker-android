@@ -2,9 +2,9 @@
 
 set -e
 
-export SDKS=$(seq 28 21)
-export LATEST_SDKS=$(seq 28 26)
-export LATEST_PACKAGES=''; for SDK in $LATEST_SDKS; do export LATEST_PACKAGES="platforms;android-${SDK} $LATEST_PACKAGES"; done
+SDKS=$(echo {28..21})
+LATEST_SDKS=$(echo {28..26})
+LATEST_PACKAGES=''; for SDK in $LATEST_SDKS; do LATEST_PACKAGES="platforms;android-${SDK} $LATEST_PACKAGES"; done
 
 echo "SDKS = $SDKS"
 echo "LATEST_SDKS = $LATEST_SDKS"
