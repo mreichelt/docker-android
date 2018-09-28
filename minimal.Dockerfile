@@ -26,6 +26,6 @@ RUN mkdir android && cd android && \
     unzip -qq tools.zip && \
     rm tools.zip
 
-RUN yes | sdkmanager 'tools' 'platform-tools'
+RUN yes | sdkmanager 'tools' 'platform-tools' > /dev/null
 
 RUN export LD_LIBRARY_PATH=$ANDROID_HOME/emulator/lib64/qt/lib/
