@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set +x
+set -e
 
 SDKS=$(seq 28 21)
 LATEST_SDKS=$(seq 28 26)
@@ -15,7 +15,7 @@ docker build --tag mreichelt/android:base --file base.Dockerfile .
 echo
 
 echo "Building 'latest' image…"
-docker build --tag mreichelt/android:latest --build-arg latest_packages=${LATEST_PACKAGES} --file latest.Dockerfile .
+docker build --tag mreichelt/android:latest --build-arg "latest_packages=${LATEST_PACKAGES}" --file latest.Dockerfile .
 echo
 
 for sdk in $SDKS; do
