@@ -6,6 +6,10 @@ SDKS=$(seq 28 21)
 LATEST_SDKS=$(seq 28 26)
 LATEST_PACKAGES=''; for SDK in $LATEST_SDKS; do LATEST_PACKAGES="platforms;android-${SDK} $LATEST_PACKAGES"; done
 
+echo "SDKS = $SDKS"
+echo "LATEST_SDKS = $LATEST_SDKS"
+echo "LATEST_PACKAGES = $LATEST_PACKAGES"
+
 echo "Building 'minimal' image…"
 docker build --tag mreichelt/android:minimal --file minimal.Dockerfile .
 echo
