@@ -12,14 +12,14 @@ ENV PATH $PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platfor
 WORKDIR /opt
 
 RUN dpkg --add-architecture i386 && \
-    apt-get -qq update && \
-    apt-get -qq install -y wget curl maven ant git gradle libncurses5:i386 libstdc++6:i386 zlib1g:i386 file libpulse0 qt5-default && \
-    wget --output-document=android-wait-for-emulator https://raw.githubusercontent.com/travis-ci/travis-cookbooks/0f497eb71291b52a703143c5cd63a217c8766dc9/community-cookbooks/android-sdk/files/default/android-wait-for-emulator && \
+    apt-get update -qq && \
+    apt-get install -qq -y wget curl maven ant git gradle libncurses5:i386 libstdc++6:i386 zlib1g:i386 file libpulse0 qt5-default && \
+    wget --quiet --output-document=android-wait-for-emulator https://raw.githubusercontent.com/travis-ci/travis-cookbooks/0f497eb71291b52a703143c5cd63a217c8766dc9/community-cookbooks/android-sdk/files/default/android-wait-for-emulator && \
     chmod +x android-wait-for-emulator && \
     # Installs Android SDK
     mkdir android && cd android && \
-    wget --output-document=tools.zip ${ANDROID_SDK_URL} && \
-    unzip tools.zip && rm tools.zip
+    wget --quiet --output-document=tools.zip ${ANDROID_SDK_URL} && \
+    unzip -qq tools.zip && rm tools.zip
 
 RUN yes | sdkmanager 'tools' 'platform-tools'
 
