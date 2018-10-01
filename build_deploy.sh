@@ -39,14 +39,17 @@ build_deploy_sdk_and_system() {
 
     echo "Building '$sdk' image…"
     docker build --tag mreichelt/android:$sdk --build-arg android_sdk_version=$sdk --file sdk.Dockerfile .
+    echo "Pushing '$sdk' image…"
     docker push mreichelt/android:$sdk
     echo
 
     echo "Building '$sdk-system' image…"
     docker build --tag mreichelt/android:$sdk-system --build-arg android_sdk_version=$sdk --file sdk-system.Dockerfile .
+    echo "Pushing '$sdk-system' image…"
     docker push mreichelt/android:$sdk-system
     echo
 
+    echo "Deleting images '$sdk' and '$sdk-system'"
     docker rmi mreichelt/android:$sdk mreichelt/android:$sdk-system
 }
 
@@ -59,4 +62,4 @@ docker rmi mreichelt/android:minimal mreichelt/android:latest
 
 # build all sdk + system variants (in parallel because TravisCI has a 50m timeout)
 export -f build_deploy_sdk_and_system
-SHELL=$(type -p bash) parallel -j 3 --keep-order --line-buffer echo Building SDK {}\; build_deploy_sdk_and_system {} ::: $SDKS
+SHELL=$(type -p bash) parallel -j 2 --keep-order --line-buffer echo Building SDK {}\; build_deploy_sdk_and_system {} ::: $SDKS
