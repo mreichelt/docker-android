@@ -3,6 +3,9 @@ sudo: required
 services:
   - docker
 
+before_install:
+  - sudo apt-get install -y parallel
+
 jobs:
   include:
     - stage: build_and_deploy
