@@ -59,4 +59,4 @@ docker rmi mreichelt/android:minimal mreichelt/android:latest
 
 # build all sdk + system variants (in parallel because TravisCI has a 50m timeout)
 export -f build_deploy_sdk_and_system
-SHELL=$(type -p bash) parallel -j 3 build_deploy_sdk_and_system {} ::: $SDKS
+SHELL=$(type -p bash) parallel -j 2 build_deploy_sdk_and_system {} ::: $SDKS
