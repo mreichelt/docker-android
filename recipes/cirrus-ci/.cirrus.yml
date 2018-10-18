@@ -1,5 +1,5 @@
 contianer:
   image: mreichelt/android:28
   
-check_task:
+build_task:
   check_script: ./gradlew check assemble
