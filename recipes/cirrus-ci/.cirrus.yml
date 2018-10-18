@@ -1,0 +1,5 @@
+container:
+  image: mreichelt/android:28
+  
+build_task:
+  build_script: ./gradlew check assemble
