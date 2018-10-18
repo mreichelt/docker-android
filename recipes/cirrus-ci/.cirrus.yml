@@ -1,4 +1,4 @@
-contianer:
+container:
   image: mreichelt/android:28
   
 build_task:
