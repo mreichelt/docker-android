@@ -2,4 +2,4 @@ container:
   image: mreichelt/android:28
   
 build_task:
-  check_script: ./gradlew check assemble
+  build_script: ./gradlew check assemble
