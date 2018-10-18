@@ -1,0 +1,6 @@
+image: mreichelt/android:28
+
+build:
+  stage: build
+  script:
+    - ./gradlew check assemble
