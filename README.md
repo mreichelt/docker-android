@@ -43,6 +43,10 @@ build:
 
 That's it! Happy hacking! 😊
 
+## Getting Started on CircleCi
+
+To set up CircleCi builds for your android project based on these images copy the [CircleCI recipe](/recipes/circle-ci/config.yml) into `.circleci/config.yml` of your project - happy building 🎉.
+
 ## Contributing
 
 Pull requests are welcome! 🎉
