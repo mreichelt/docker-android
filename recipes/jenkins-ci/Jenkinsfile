@@ -1,0 +1,14 @@
+pipeline {
+    agent {
+        docker {
+            image 'mreichelt/android:28'
+        }
+    }
+    stages {
+        stage('Build') {
+            steps {
+                sh './gradlew check assemble'
+            }
+        }
+    }
+}
