@@ -27,10 +27,24 @@ build_deploy_base() {
     echo
 }
 
+build_deploy_base_ndk() {
+    echo "Building 'base-ndk' image…"
+    docker build --tag mreichelt/android:base-ndk --file base-ndk.Dockerfile .
+    docker push mreichelt/android:base-ndk
+    echo
+}
+
 build_deploy_latest() {
     echo "Building 'latest' image…"
     docker build --tag mreichelt/android:latest --build-arg "latest_packages=${LATEST_PACKAGES}" --file latest.Dockerfile .
     docker push mreichelt/android:latest
+    echo
+}
+
+build_deploy_latest_ndk() {
+    echo "Building 'latest-ndk' image…"
+    docker build --tag mreichelt/android:latest-ndk --file latest-ndk.Dockerfile .
+    docker push mreichelt/android:latest-ndk
     echo
 }
 
@@ -56,9 +70,15 @@ build_deploy_sdk_and_system() {
 build_deploy_minimal
 build_deploy_base
 build_deploy_latest
+build_deploy_base_ndk
+build_deploy_latest_ndk
 
 # remove some old images to save space on Travis CI
-docker rmi mreichelt/android:minimal mreichelt/android:latest
+docker rmi \
+    mreichelt/android:minimal \
+    mreichelt/android:latest \
+    mreichelt/android:base-ndk \
+    mreichelt/android:latest-ndk
 
 # build all sdk + system variants (in parallel because TravisCI has a 50m timeout)
 export -f build_deploy_sdk_and_system
