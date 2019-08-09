@@ -16,13 +16,13 @@ To play around with an image locally, install [Docker](https://www.docker.com/) 
 # run the minimal image (just Java + sdkmanager)
 docker run --rm -it mreichelt/android:minimal
 
-# or run an image with SDK 29 installed
-docker run --rm -it mreichelt/android:29
+# or run an image with SDK 28 installed
+docker run --rm -it mreichelt/android:28
 
 # this one also contains the emulator + system image:
-docker run --rm -it mreichelt/android:29-system
+docker run --rm -it mreichelt/android:28-system
 
-# or, if you want the newest 3 SDKs (currently 29, 28, and 27):
+# or, if you want the newest 3 SDKs (currently 28, 27 and 26):
 docker run --rm -it mreichelt/android:latest
 ```
 
@@ -33,7 +33,7 @@ Check out the list of [tags](https://hub.docker.com/r/mreichelt/android/tags/) a
 If you use GitLab, you can set up builds for your Android app in a jiffy. Just add the following `.gitlab-ci.yml` file to your project:
 
 ```yaml
-image: mreichelt/android:29
+image: mreichelt/android:28
 
 build:
   stage: build
