@@ -6,4 +6,5 @@ RUN yes | sdkmanager \
       'build-tools;25.0.3' \
       'build-tools;26.0.3' \
       'build-tools;27.0.3' \
-      'build-tools;28.0.3' > /dev/null
+      'build-tools;28.0.3' \
+      'build-tools;29.0.0' > /dev/null
