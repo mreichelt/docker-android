@@ -1,0 +1,13 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - sudo apt-get install -y parallel
+
+jobs:
+  include:
+    - if: branch = master
+      stage: build_and_deploy
+      script: ./build_deploy.sh
