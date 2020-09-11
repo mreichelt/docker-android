@@ -3,8 +3,8 @@
 # abort on errors and on unset variables
 set -e -o nounset
 
-SDKS=$(echo {29..22})
-LATEST_SDKS=$(echo {29..27})
+SDKS=$(echo {30..23})
+LATEST_SDKS=$(echo {30..28})
 LATEST_PACKAGES=''; for SDK in $LATEST_SDKS; do LATEST_PACKAGES="platforms;android-${SDK} $LATEST_PACKAGES"; done
 
 echo "SDKS = $SDKS"
