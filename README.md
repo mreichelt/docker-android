@@ -1,7 +1,5 @@
 # Docker images for Android development
 
-[![Build Status](https://travis-ci.org/mreichelt/docker-android.svg?branch=master)](https://travis-ci.org/mreichelt/docker-android)
-
 You want to build Android apps on your CI server or just play around with certain Android SDKs?
 Then these Docker images could come in very handy!
 
