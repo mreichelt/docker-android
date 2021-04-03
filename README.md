@@ -16,7 +16,7 @@ To play around with an image locally, install [Docker](https://www.docker.com/) 
 # run the minimal image (just Java + sdkmanager)
 docker run --rm -it mreichelt/android:minimal
 
-# or run an image with SDK 29 installed
+# or run an image with specific SDK installed
 docker run --rm -it mreichelt/android:30
 
 # this one also contains the emulator + system image:
