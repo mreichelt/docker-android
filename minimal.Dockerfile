@@ -1,4 +1,4 @@
-FROM openjdk:11
+FROM openjdk:17
 LABEL maintainer="mcreichelt@gmail.com"
 ENV ANDROID_SDK_URL="https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip" \
     ANT_HOME="/usr/share/ant" \
